@@ -101,8 +101,19 @@ contains("Pencil", items, logContains)
 
 /* STRETCH PROBLEM */
 
+let numArray = [1,4,7,4,5,8,9,3,1]
 function removeDuplicates(array, cb) {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
+  return cb(array)
 }
+
+function logDups(array) {
+  console.log(array.reduce((unique, items) => {
+    return unique.includes(items) ? unique : [...unique, items]
+  }, []))
+}
+
+removeDuplicates(numArray, logDups)
+console.log(numArray)
